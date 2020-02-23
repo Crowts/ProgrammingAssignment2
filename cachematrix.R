@@ -26,7 +26,12 @@
  
 
 makeCacheMatrix <- function(x = matrix()) {
-  m_inverse <- matrix(data=NA, nrow=dim(x)[1],ncol=dim(x)[2])
+  if(dim(x)[1] == dim(x)[2]){
+    m_inverse <- matrix(data=NA, nrow=dim(x)[1],ncol=dim(x)[2])
+  } else {
+      message("Input matrix not sqaure. Inverse does NOT exit.")
+  }
+  
   set <- function(new_matrix) {
     x <<- new_matrix
     m_inverse <<- matrix(data=NA, nrow=dim(x)[1],ncol=dim(x)[2])
@@ -61,6 +66,8 @@ cacheSolve <- function(x, ...) {
   if(data%*%m_inverse == diag(nrow=dim(data)[1]) && m_inverse%*%data == diag(nrow=dim(data)[1])){
           #print("m_inverse is the correct inverse")
           m_inverse <- m_inverse
+  } else {
+      message("Inverse matrix not valid. Check computations again.")
     }
   m_inverse
 }
