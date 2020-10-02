@@ -1,4 +1,5 @@
 ### Introduction
+This repo contains assignments from the R Programming course offered by Johns Hopkins University, Bloomberg School of Public Health on Coursera.  
 
 This second programming assignment will require you to write an R
 function that is able to cache potentially time-consuming computations.
